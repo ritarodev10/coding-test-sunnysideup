@@ -40,7 +40,7 @@ const Navbar = (props: Props) => {
           </Typography>
         </FlexBetween>
       </Link>
-      <FlexBetween gap="2rem">
+      <FlexBetween gap={{ xs: "0.5rem", sm: "2rem" }}>
         <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
           <Link
             to="/dashboard"
