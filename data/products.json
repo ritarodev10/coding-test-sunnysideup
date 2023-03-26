@@ -1,0 +1,274 @@
+{
+  "products": [
+    {
+      "id": "23232",
+      "image_id": 1,
+      "name": "Air Max 90",
+      "description": "The Nike Air Max 90 features a retro look and feel with modern elements for a comfortable fit and stylish look.",
+      "price": 119.99,
+      "currency": "USD",
+      "category": "Running Shoes",
+      "image_url": "https://3.bp.blogspot.com/-T8dtDMg4JQ0/TdUn_qMjZmI/AAAAAAAAAK8/JDwvp4WO7Tw/s1600/04.jpg"
+    },
+    {
+      "id": "34517",
+      "image_id": 3,
+      "name": "Kyrie 7",
+      "description": "The Nike Kyrie 7 features a bouncy cushioning system and a secure, supportive fit to help you stay quick on your feet.",
+      "price": 129.99,
+      "currency": "USD",
+      "category": "Basketball Shoes",
+      "image_url": "https://i.pinimg.com/originals/fe/96/0f/fe960fe83eb86955e6d6682d4f3ed67c.jpg"
+    },
+    {
+      "id": "45978",
+      "name": "Zoom Pegasus 38",
+      "image_id": 4,
+      "description": "The Nike Zoom Pegasus 38 provides a lightweight and comfortable ride, making it perfect for everyday running.",
+      "price": 119.99,
+      "currency": "USD",
+      "category": "Running Shoes",
+      "image_url": "https://th.bing.com/th/id/OIP.HYY40xA10h2RhRV_sc9eVQHaFj?pid=ImgDet&w=500&h=375&rs=1"
+    },
+    {
+      "id": "56729",
+      "name": "Metcon 6",
+      "image_id": 5,
+      "description": "The Nike Metcon 6 is a versatile cross-training shoe that offers stability and durability for intense workouts.",
+      "price": 129.99,
+      "currency": "USD",
+      "category": "Training Shoes",
+      "image_url": "https://i.pinimg.com/originals/65/b0/e7/65b0e71a96419cfd712babd473f9fc22.jpg"
+    },
+    {
+      "id": "678290",
+      "name": "Jordan Delta 2",
+      "image_id": 6,
+      "description": "The Jordan Delta 2 offers a modern, versatile look with plush comfort and responsive cushioning.",
+      "price": 149.99,
+      "currency": "USD",
+      "category": "Basketball Shoes",
+      "image_url": "https://i.pinimg.com/originals/ea/0e/f2/ea0ef2bd98ec35d9efefc6fafd44b022.jpg"
+    },
+    {
+      "id": "78911",
+      "name": "Zoom Freak 2",
+      "image_id": 7,
+      "description": "The Nike Zoom Freak 2 is designed to help you unleash your inner freak on the court with a cushioned, responsive feel and a supportive fit.",
+      "price": 119.99,
+      "currency": "USD",
+      "category": "Basketball Shoes",
+      "image_url": "https://www.nike.com/t/zoom-freak-2-basketball-shoe-nMwMLH/CJ0951-002"
+    },
+    {
+      "id": "89012312",
+      "name": "Joyride Dual Run",
+      "image_id": 8,
+      "description": "The Nike Joyride Dual Run offers a unique cushioning system that adapts to your stride for a comfortable and responsive ride.",
+      "price": 129.99,
+      "currency": "USD",
+      "category": "Running Shoes",
+      "image_url": "https://www.nike.com/t/joyride-dual-run-mens-running-shoe-r5l5p9/CK4363-100"
+    },
+    {
+      "id": "101234",
+      "name": "React Infinity Run Flyknit 2",
+      "image_id": 10,
+      "description": "The Nike React Infinity Run Flyknit 2 is designed to help reduce injury and keep you running with a responsive and supportive feel.",
+      "price": 159.99,
+      "currency": "USD",
+      "category": "Running Shoes",
+      "image_url": "https://www.nike.com/t/react-infinity-run-flyknit-2-running-shoe-txSDxh/CT2357-600"
+    },
+    {
+      "id": "23456",
+      "name": "LeBron 18",
+      "image_id": 1,
+      "description": "The Nike LeBron 18 offers a powerful combination of cushioning, support, and durability for the court.",
+      "price": 199.99,
+      "currency": "USD",
+      "category": "Basketball Shoes",
+      "image_url": "https://www.nike.com/t/lebron-18-basketball-shoe-5p6vGr/CW3159-001"
+    },
+    {
+      "id": "34567",
+      "name": "Air Zoom SuperRep 2",
+      "image_id": 2,
+      "description": "The Nike Air Zoom SuperRep 2 is designed to help you tackle high-intensity workouts with a supportive and responsive feel.",
+      "price": 119.99,
+      "currency": "USD",
+      "category": "Training Shoes",
+      "image_url": "https://www.nike.com/t/air-zoom-superrep-2-training-shoe-mGGFpb/CU5946-002"
+    },
+    {
+      "id": "567809",
+      "name": "Air Zoom Structure 24",
+      "image_id": 4,
+      "description": "The Nike Air Zoom Structure 24 offers a supportive and stable ride with a comfortable fit for everyday running.",
+      "price": 119.99,
+      "currency": "USD",
+      "category": "Running Shoes",
+      "image_url": "https://www.nike.com/t/air-zoom-structure-24-running-shoe-2l0W0V/CW7069-003"
+    },
+    {
+      "id": "78901",
+      "name": "Metcon 6",
+      "image_id": 6,
+      "description": "The Nike Metcon 6 is designed for high-intensity training, with a stable base and responsive cushioning.",
+      "price": 129.99,
+      "currency": "USD",
+      "category": "Training Shoes",
+      "image_url": "https://www.nike.com/t/metcon-6-training-shoe-2NQkxL/CJ8820-005"
+    },
+    {
+      "id": "8932012",
+      "name": "Air Force 1 '07 LV8",
+      "image_id": 7,
+      "description": "The Nike Air Force 1 '07 LV8 offers a classic look with modern updates, featuring premium materials and unique details.",
+      "price": 109.99,
+      "currency": "USD",
+      "category": "Lifestyle Shoes",
+      "image_url": "https://www.nike.com/t/air-force-1-07-lv8-mens-shoe-PNtj1n/CW6999-100"
+    },
+    {
+      "id": "90123",
+      "name": "Revolution 5",
+      "image_id": 8,
+      "description": "The Nike Revolution 5 offers a lightweight and breathable design with a comfortable fit for everyday wear.",
+      "price": 59.99,
+      "currency": "USD",
+      "category": "Running Shoes",
+      "image_url": "https://www.nike.com/t/revolution-5-running-shoe-zV7vLk/BQ3204-010"
+    },
+    {
+      "id": "301234",
+      "name": "Air Max 90",
+      "image_id": 9,
+      "description": "The Nike Air Max 90 offers a classic look with modern updates, featuring the iconic Air Max cushioning and a durable leather and mesh upper.",
+      "price": 119.99,
+      "currency": "USD",
+      "category": "Lifestyle Shoes",
+      "image_url": "https://www.nike.com/t/air-max-90-mens-shoe-8SxSfV/CZ5588-001"
+    },
+    {
+      "id": "34587",
+      "name": "Mercurial Vapor 14",
+      "image_id": 1,
+      "description": "The Nike Mercurial Vapor 14 is designed for speed on the soccer field, with a lightweight and responsive design for quick cuts and explosive acceleration.",
+      "price": 249.99,
+      "currency": "USD",
+      "category": "Soccer Cleats",
+      "image_url": "https://www.nike.com/t/mercurial-vapor-14-academy-mg-multi-ground-soccer-cleat-xKVZzX/CZ9188-010"
+    },
+    {
+      "id": "45218",
+      "name": "React Infinity Run Flyknit 2",
+      "image_id": 2,
+      "description": "The Nike React Infinity Run Flyknit 2 offers a cushioned and supportive ride for runners, with a lightweight and breathable Flyknit upper.",
+      "price": 159.99,
+      "currency": "USD",
+      "category": "Running Shoes",
+      "image_url": "https://www.nike.com/t/react-infinity-run-flyknit-2-running-shoe-1C4tzz/CZ7909-001"
+    },
+    {
+      "id": "52789",
+      "name": "LeBron 18 Low",
+      "image_id": 3,
+      "description": "The Nike LeBron 18 Low offers a comfortable and responsive feel for basketball players, with a low-cut design for freedom of movement.",
+      "price": 159.99,
+      "currency": "USD",
+      "category": "Basketball Shoes",
+      "image_url": "https://www.nike.com/t/lebron-18-low-basketball-shoe-FLl1Tr/CV7562-002"
+    },
+    {
+      "id": "678901",
+      "name": "Air Max 2090",
+      "image_id": 4,
+      "description": "The Nike Air Max 2090 offers a futuristic look with modern updates, featuring a transparent upper and bold color options.",
+      "price": 149.99,
+      "currency": "USD",
+      "category": "Lifestyle Shoes",
+      "image_url": "https://www.nike.com/t/air-max-2090-mens-shoe-Z3qL6q/CW7303-005"
+    },
+    {
+      "id": "78908",
+      "name": "React Element 55",
+      "image_id": 5,
+      "description": "The Nike React Element 55 offers a sleek and modern design with responsive cushioning and a durable rubber outsole.",
+      "price": 129.99,
+      "currency": "USD",
+      "category": "Lifestyle Shoes",
+      "image_url": "https://www.nike.com/t/react-element-55-shoe-jNMpSK/CJ0782-100"
+    },
+    {
+      "id": "89012",
+      "name": "Zoom Rize 2",
+      "image_id": 6,
+      "description": "The Nike Zoom Rize 2 offers a responsive and supportive feel for basketball players, with a durable and breathable upper.",
+      "price": 139.99,
+      "currency": "USD",
+      "category": "Basketball Shoes",
+      "image_url": "https://www.nike.com/t/zoom-rize-2-basketball-shoe-6Nn0qN/CW5573-001"
+    },
+    {
+      "id": "90211123",
+      "name": "Air Zoom Pegasus 38",
+      "image_id": 7,
+      "description": "The Nike Air Zoom Pegasus 38 offers a comfortable and responsive ride for runners, with a breathable and lightweight design.",
+      "price": 119.99,
+      "currency": "USD",
+      "category": "Running Shoes",
+      "image_url": "https://www.nike.com/t/air-zoom-pegasus-38-mens-running-shoe-r1CJrK/CZ7872-009"
+    },
+    {
+      "id": "1231245",
+      "name": "Metcon 6",
+      "image_id": 8,
+      "description": "The Nike Metcon 6 is designed for intense cross-training workouts, with a stable heel and flexible forefoot for a versatile and supportive fit.",
+      "price": 129.99,
+      "currency": "USD",
+      "category": "Training Shoes",
+      "image_url": "https://www.nike.com/t/metcon-6-training-shoe-bV1xRg/CJ0847-011"
+    },
+    {
+      "id": "189901",
+      "name": "Air Zoom Structure 24",
+      "image_id": 9,
+      "description": "The Nike Air Zoom Structure 24 offers a stable and supportive ride for runners, with a responsive cushioning system and a breathable upper.",
+      "price": 129.99,
+      "currency": "USD",
+      "category": "Running Shoes",
+      "image_url": "https://www.nike.com/t/air-zoom-structure-24-running-shoe-16jgG7/CW7413-100"
+    },
+    {
+      "id": "34569",
+      "name": "Air Force 1 '07 LV8",
+      "image_id": 10,
+      "description": "The Nike Air Force 1 '07 LV8 offers a classic and iconic design with modern updates, featuring premium materials and bold color options.",
+      "price": 109.99,
+      "currency": "USD",
+      "category": "Lifestyle Shoes",
+      "image_url": "https://www.nike.com/t/air-force-1-07-lv8-mens-shoe-xwV0g3/CZ0338-100"
+    },
+    {
+      "id": "56789",
+      "name": "Phantom GT Club TF",
+      "image_id": 2,
+      "description": "The Nike Phantom GT Club TF offers a versatile and supportive design for soccer players, with a textured upper for enhanced control and traction on turf surfaces.",
+      "price": 69.99,
+      "currency": "USD",
+      "category": "Soccer Cleats",
+      "image_url": "https://www.nike.com/t/phantom-gt-club-tf-turf-soccer-shoe-rhkZmq/CZ8185-077"
+    },
+    {
+      "id": "67890",
+      "name": "Jordan Delta 2",
+      "image_id": 3,
+      "description": "The Jordan Delta 2 offers a comfortable and modern design with responsive cushioning and a durable rubber outsole.",
+      "price": 129.99,
+      "currency": "USD",
+      "category": "Lifestyle Shoes",
+      "image_url": "https://www.nike.com/t/jordan-delta-2-shoe-6l1rN1/CW0916-100"
+    }
+  ]
+}

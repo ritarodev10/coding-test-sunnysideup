@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { Box, CssBaseline } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useMemo } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Navbar from "@/layouts/Navbar";
+import Dashboard from "@/pages/dashboard";
+import Sales from "@/pages/Sales";
+import { themeSettings } from "./theme";
+import Login from "./pages/Login";
+import RequireAuth from "./utils/RequireAuth";
+import Layout from "./layouts/Layout";
+import EscapeLogin from "./utils/EscapeLogin";
+import ProductPage from "./pages/product";
 function App() {
-  const [count, setCount] = useState(0)
+  const theme = useMemo(() => createTheme(themeSettings), []);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="app">
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Box width="100%" height="100vh">
+            <Box width="100%" height="100%" padding="1rem 2rem 4rem 2rem">
+              <Routes>
+                <Route element={<RequireAuth />}>
+                  {/* Protected Routes */}
+                  <Route path="/" element={<Layout />}>
+                    <Route index element={<Navigate to="/dashboard" />} />
+                    <Route path="/dashboard" element={<Dashboard />}></Route>
+                    <Route path="/sales" element={<Sales />}></Route>
+                    <Route path="/products" element={<ProductPage />}></Route>
+                  </Route>
+                </Route>
+                {/* Public Route */}
+                <Route element={<EscapeLogin />}>
+                  <Route path="/login" element={<Login />} />
+                </Route>
+              </Routes>
+            </Box>
+          </Box>
+        </ThemeProvider>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
