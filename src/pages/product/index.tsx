@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Box, Button, Grid } from "@mui/material";
-import { useGetProductsQuery } from "@/api/apiSlice";
+import {
+  useGetProductsQuery,
+  useAddProductMutation,
+  useUpdateProductMutation,
+} from "@/api/apiSlice";
 import AddEditProductModal from "@/pages/product/AddEditProductModal";
 import ProductCard from "./ProductCard";
 import { Product } from "@/api/types";
@@ -9,14 +13,27 @@ const ProductPage = () => {
   const [isAddEditProductModalOpen, setIsAddEditProductModalOpen] =
     useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
   const { data: products = [], refetch } = useGetProductsQuery();
 
-  const handleAddProduct = () => setIsAddEditProductModalOpen(true);
-  const handleEditProduct = (product: Product) => setSelectedProduct(product);
+  const handleAddProductModal = () => setIsAddEditProductModalOpen(true);
   const handleCloseAddEditProductModal = () => {
     setSelectedProduct(null);
     setIsAddEditProductModalOpen(false);
     refetch();
+  };
+
+  const [addproduct] = useAddProductMutation();
+  const [editProduct] = useUpdateProductMutation();
+
+  const handleSaveProduct = (product: Product) => {
+    if (selectedProduct) {
+      const updatedProduct = { ...selectedProduct, ...product };
+      editProduct(updatedProduct);
+    } else {
+      addproduct(product as Omit<Product, "id">);
+    }
+    handleCloseAddEditProductModal();
   };
 
   return (
@@ -24,7 +41,7 @@ const ProductPage = () => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-            <Button variant="contained" onClick={handleAddProduct}>
+            <Button variant="contained" onClick={handleAddProductModal}>
               Add Product
             </Button>
           </Box>
@@ -44,6 +61,7 @@ const ProductPage = () => {
         open={isAddEditProductModalOpen}
         onClose={handleCloseAddEditProductModal}
         productToEdit={selectedProduct}
+        onSave={handleSaveProduct}
       />
     </Box>
   );

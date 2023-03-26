@@ -92,7 +92,7 @@
     },
     {
       "id": "34567",
-      "name": "Air Zoom SuperRep 2",
+      "name": "Air Zoom SuperRep 2wq",
       "image_id": 2,
       "description": "The Nike Air Zoom SuperRep 2 is designed to help you tackle high-intensity workouts with a supportive and responsive feel.",
       "price": 119.99,
@@ -231,18 +231,8 @@
       "image_url": "https://www.nike.com/t/air-zoom-structure-24-running-shoe-16jgG7/CW7413-100"
     },
     {
-      "id": "34569",
-      "name": "Air Force 1 '07 LV8",
-      "image_id": 10,
-      "description": "The Nike Air Force 1 '07 LV8 offers a classic and iconic design with modern updates, featuring premium materials and bold color options.",
-      "price": 109.99,
-      "currency": "USD",
-      "category": "Lifestyle Shoes",
-      "image_url": "https://www.nike.com/t/air-force-1-07-lv8-mens-shoe-xwV0g3/CZ0338-100"
-    },
-    {
       "id": "56789",
-      "name": "Phantom GT Club TF",
+      "name": "Phantom GT Club TFfsf",
       "image_id": 2,
       "description": "The Nike Phantom GT Club TF offers a versatile and supportive design for soccer players, with a textured upper for enhanced control and traction on turf surfaces.",
       "price": 69.99,
@@ -259,6 +249,13 @@
       "currency": "USD",
       "category": "Lifestyle Shoes",
       "image_url": "https://www.nike.com/t/jordan-delta-2-shoe-6l1rN1/CW0916-100"
+    },
+    {
+      "id": "N4O8DM-",
+      "description": "",
+      "category": "Soccer Cleatsq",
+      "price": 2333,
+      "name": "Air Max 90sxxxxxx"
     }
   ]
 }

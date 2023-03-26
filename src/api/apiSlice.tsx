@@ -21,7 +21,7 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Products"],
     }),
-    updateProduct: builder.mutation<Product, Partial<Product>>({
+    updateProduct: builder.mutation<Product, Product>({
       query: (product) => ({
         url: `/products/${product.id}`,
         method: "PATCH",

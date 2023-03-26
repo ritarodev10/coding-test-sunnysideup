@@ -6,7 +6,10 @@ import {
   DialogTitle,
   TextField,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { Product } from "@/api/types";
 
 interface AddEditProductModalProps {
@@ -16,59 +19,61 @@ interface AddEditProductModalProps {
   productToEdit?: Product | null;
 }
 
+interface FormValues {
+  name: string;
+  price: number;
+  category: string;
+  description: string;
+}
+
+const schema = yup.object().shape({
+  name: yup.string().trim().required("Product name is required"),
+  price: yup.number().positive("Price must be greater than 0").required(),
+  category: yup.string().trim().required("Category is required"),
+  description: yup.string().trim(),
+});
+
 const AddEditProductModal = ({
   open,
   onClose,
   onSave,
   productToEdit,
 }: AddEditProductModalProps) => {
-  console.log(
-    "🚀 ~ file: AddEditProductModal.tsx:25 ~ productToEdit:",
-    productToEdit
-  );
-  const [name, setName] = useState(productToEdit?.name || "");
-  const [price, setPrice] = useState(productToEdit?.price || 0);
-  const [category, setCategory] = useState(productToEdit?.category || "");
-  const [description, setDescription] = useState(
-    productToEdit?.description || ""
-  );
-  const [validationErrors, setValidationErrors] = useState({
-    name: "",
-    price: "",
-    category: "",
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormValues>({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      name: "",
+      price: 0,
+      category: "",
+      description: "",
+    },
   });
 
   const isEdit = Boolean(productToEdit);
 
-  const handleSave = () => {
-    const errors: { [key: string]: string } = {};
-
-    if (!name.trim()) {
-      errors.name = "Product name is required";
+  useEffect(() => {
+    if (productToEdit) {
+      reset(productToEdit);
+    } else {
+      reset({
+        name: "",
+        category: "",
+        price: 0,
+        description: "",
+      });
     }
+  }, [productToEdit]);
 
-    if (!category.trim()) {
-      errors.category = "Category is required";
-    }
-
-    if (price <= 0) {
-      errors.price = "Price must be greater than 0";
-    }
-
-    if (Object.keys(errors).length > 0) {
-      setValidationErrors(errors);
-      return;
-    }
-
-    const product: Product = {
-      id: isEdit ? productToEdit!.id : undefined,
-      name,
-      price,
-      category,
-      description,
-    };
-
-    onSave(product);
+  const handleSave: SubmitHandler<FormValues> = (data) => {
+    onSave({
+      id: isEdit ? productToEdit!.id : "",
+      ...data,
+    });
     onClose();
   };
 
@@ -81,43 +86,43 @@ const AddEditProductModal = ({
           margin="dense"
           label="Product Name"
           fullWidth
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          error={Boolean(validationErrors.name)}
-          helperText={validationErrors.name || ""}
+          {...register("name")}
+          error={Boolean(errors.name)}
+          helperText={errors.name?.message || ""}
         />
         <TextField
           margin="dense"
           label="Category"
           fullWidth
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          error={Boolean(validationErrors.category)}
-          helperText={validationErrors.category || ""}
+          {...register("category")}
+          error={Boolean(errors.category)}
+          helperText={errors.category?.message || ""}
         />
         <TextField
           margin="dense"
           label="Price"
           fullWidth
           type="number"
-          value={price}
-          onChange={(e) => setPrice(Number(e.target.value))}
-          error={Boolean(validationErrors.price)}
-          helperText={validationErrors.price || ""}
+          {...register("price")}
+          error={Boolean(errors.price)}
+          helperText={errors.price?.message || ""}
         />
-        <TextField
-          margin="dense"
-          label="Description"
-          fullWidth
-          multiline
-          rows={4}
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+        {isEdit && (
+          <TextField
+            margin="dense"
+            label="Description"
+            fullWidth
+            multiline
+            rows={4}
+            {...register("description")}
+          />
+        )}
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={handleSave}>{isEdit ? "Save" : "Add"}</Button>
+        <Button onClick={handleSubmit(handleSave)}>
+          {isEdit ? "Save" : "Add"}
+        </Button>
       </DialogActions>
     </Dialog>
   );
