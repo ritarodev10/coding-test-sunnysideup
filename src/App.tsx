@@ -28,7 +28,10 @@ function App() {
                     <Route index element={<Navigate to="/dashboard" />} />
                     <Route path="/dashboard" element={<Dashboard />}></Route>
                     <Route path="/sales" element={<Sales />}></Route>
-                    <Route path="/products" element={<ProductPage />}></Route>
+                    <Route
+                      path="/product-list"
+                      element={<ProductPage />}
+                    ></Route>
                   </Route>
                 </Route>
                 {/* Public Route */}

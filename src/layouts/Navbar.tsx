@@ -54,9 +54,10 @@ const Navbar = (props: Props) => {
         </Box>
         <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
           <Link
-            to="/products"
+            to="/product-list"
             style={{
-              color: selected === "/products" ? "inherit" : palette.grey[700],
+              color:
+                selected === "/product-list" ? "inherit" : palette.grey[700],
               textDecoration: "inherit",
             }}
           >

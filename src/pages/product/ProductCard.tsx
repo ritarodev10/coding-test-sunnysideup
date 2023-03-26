@@ -10,24 +10,27 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { useDeleteProductMutation } from "@/api/apiSlice";
 import ItemCard from "@/components/ItemCard";
+import { Dispatch, SetStateAction } from "react";
+import { Product } from "@/api/types";
 
 interface ProductCardProps {
-  product: {
-    id: string;
-    name: string;
-    description: string;
-    price: number;
-    currency: string;
-    category: string;
-    image_url: string;
-  };
-  onEdit: (product: any) => void;
+  product: Product;
+  setIsAddEditProductModalOpen: Dispatch<SetStateAction<boolean>>;
+  setSelectedProduct: Dispatch<SetStateAction<Product | null>>;
 }
 
-const ProductCard = ({ product, onEdit }: ProductCardProps) => {
+const ProductCard = ({
+  product,
+  setIsAddEditProductModalOpen,
+  setSelectedProduct,
+}: ProductCardProps) => {
   const { palette } = useTheme();
   const [deleteProduct] = useDeleteProductMutation();
   const handleDelete = () => deleteProduct({ id: product.id });
+  const handleEdit = (product: Product) => {
+    setIsAddEditProductModalOpen(true);
+    setSelectedProduct(product);
+  };
 
   return (
     <ItemCard
@@ -40,7 +43,7 @@ const ProductCard = ({ product, onEdit }: ProductCardProps) => {
     >
       <CardHeader
         title={product.name}
-        subheader={`${product.currency}${product.price}`}
+        subheader={`$${product.price}`}
         titleTypographyProps={{
           color: palette.secondary.main,
           fontWeight: "bold",
@@ -59,7 +62,7 @@ const ProductCard = ({ product, onEdit }: ProductCardProps) => {
         <IconButton
           sx={{ color: palette.grey[700] }}
           aria-label="edit"
-          onClick={() => onEdit(product)}
+          onClick={() => handleEdit(product)}
         >
           <EditIcon />
         </IconButton>

@@ -1,34 +1,22 @@
 import { useState } from "react";
 import { Box, Button, Grid } from "@mui/material";
-import { useGetProductsQuery, useDeleteProductMutation } from "@/api/apiSlice";
+import { useGetProductsQuery } from "@/api/apiSlice";
 import AddEditProductModal from "@/pages/product/AddEditProductModal";
 import ProductCard from "./ProductCard";
+import { Product } from "@/api/types";
 
 const ProductPage = () => {
-  const [isAddProductDialogOpen, setIsAddProductDialogOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isAddEditProductModalOpen, setIsAddEditProductModalOpen] =
+    useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const { data: products = [], refetch } = useGetProductsQuery();
-  const [deleteProduct] = useDeleteProductMutation();
 
-  const handleAddProduct = () => setIsAddProductDialogOpen(true);
-  const handleEditProduct = (product) => setSelectedProduct(product);
-  const handleCloseAddProductDialog = () => {
+  const handleAddProduct = () => setIsAddEditProductModalOpen(true);
+  const handleEditProduct = (product: Product) => setSelectedProduct(product);
+  const handleCloseAddEditProductModal = () => {
     setSelectedProduct(null);
-    setIsAddProductDialogOpen(false);
+    setIsAddEditProductModalOpen(false);
     refetch();
-  };
-
-  const handleDeleteProduct = (id) => {
-    deleteProduct(id)
-      .unwrap()
-      .then(() => {
-        refetch();
-      });
-  };
-
-  const handleAddEditProduct = (product) => {
-    // TODO: implement add/edit product
-    handleCloseAddProductDialog();
   };
 
   return (
@@ -45,23 +33,18 @@ const ProductPage = () => {
           <Grid key={product.id} item xs={12} sm={6} md={4}>
             <ProductCard
               product={product}
-              onEdit={handleEditProduct}
-              onDelete={handleDeleteProduct}
+              setIsAddEditProductModalOpen={setIsAddEditProductModalOpen}
+              setSelectedProduct={setSelectedProduct}
             />
           </Grid>
         ))}
       </Grid>
       {/* Add/Edit Product Dialog */}
       <AddEditProductModal
-        open={isAddProductDialogOpen}
-        onClose={handleCloseAddProductDialog}
-        selectedProduct={selectedProduct}
-        onSave={handleAddEditProduct}
+        open={isAddEditProductModalOpen}
+        onClose={handleCloseAddEditProductModal}
+        productToEdit={selectedProduct}
       />
-      {/* Button to Trigger Modal */}
-      <Button variant="contained" onClick={handleAddProduct}>
-        Add Product
-      </Button>
     </Box>
   );
 };

@@ -17,7 +17,6 @@ import FormInput from "@/components/FormInput";
 import { AUTH_BASE_URL } from "@/utils/urlApi";
 import FlexBetween from "@/components/FlexBetween";
 import BeenhereIcon from "@mui/icons-material/Beenhere";
-import useAuth from "@/hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 
 interface LoginFormInputs {
@@ -35,7 +34,6 @@ const schema = yup.object().shape({
 });
 
 const Login: FC = () => {
-  const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -63,7 +61,6 @@ const Login: FC = () => {
       );
       const token = response.data.token;
       localStorage.setItem("token", token);
-      setAuth(true);
       navigate(from, { replace: true });
     } catch (error: unknown) {
       const axiosError = error as AxiosError<ErrorResponse>;

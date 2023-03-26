@@ -1,15 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ITEMS_BASE_URL } from "@/utils/urlApi";
-
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  currency: string;
-  category: string;
-  image_url: string;
-}
+import { Product } from "./types";
 
 export const apiSlice = createApi({
   reducerPath: "api",

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Button,
   Dialog,
@@ -7,86 +6,70 @@ import {
   DialogTitle,
   TextField,
 } from "@mui/material";
-// import {
-//   useAddProductMutation,
-//   useUpdateProductMutation,
-// } from "@/api/apiSlice";
-import * as yup from "yup";
-
-const validationSchema = yup.object({
-  name: yup.string().required("Product name is required"),
-  price: yup.number().required("Price is required"),
-  category: yup.string().required("Category is required"),
-});
+import { useState } from "react";
+import { Product } from "@/api/types";
 
 interface AddEditProductModalProps {
   open: boolean;
   onClose: () => void;
-  product?: {
-    id: string;
-    name: string;
-    price: number;
-    category: string;
-  };
+  onSave: (product: Product) => void;
+  productToEdit?: Product | null;
 }
 
 const AddEditProductModal = ({
   open,
   onClose,
-  product,
+  onSave,
+  productToEdit,
 }: AddEditProductModalProps) => {
-  const [name, setName] = useState(product?.name || "");
-  const [price, setPrice] = useState(product?.price || 0);
-  const [category, setCategory] = useState(product?.category || "");
-  const [validationErrors, setValidationErrors] = useState<{
-    name?: string;
-    price?: string;
-    category?: string;
-  }>({});
-  // const [addProduct] = useAddProductMutation();
-  // const [updateProduct] = useUpdateProductMutation();
-  const isEdit = !!product;
+  console.log(
+    "🚀 ~ file: AddEditProductModal.tsx:25 ~ productToEdit:",
+    productToEdit
+  );
+  const [name, setName] = useState(productToEdit?.name || "");
+  const [price, setPrice] = useState(productToEdit?.price || 0);
+  const [category, setCategory] = useState(productToEdit?.category || "");
+  const [description, setDescription] = useState(
+    productToEdit?.description || ""
+  );
+  const [validationErrors, setValidationErrors] = useState({
+    name: "",
+    price: "",
+    category: "",
+  });
 
-  // const validateFields = async () => {
-  //   try {
-  //     const dataToValidate = { name, price, category };
-  //     await validationSchema.validate(dataToValidate, { abortEarly: false });
-  //     setValidationErrors({});
-  //     return true;
-  //   } catch (err) {
-  //     const errors: { [key: string]: string } = {};
-  //     err.inner.forEach((validationError) => {
-  //       errors[validationError.path as string] = validationError.message;
-  //     });
-  //     setValidationErrors(errors);
-  //     return false;
-  //   }
-  // };
+  const isEdit = Boolean(productToEdit);
 
-  const handleSubmit = async () => {
-    const isValid = await validateFields();
-    if (isValid) {
-      const newProduct = {
-        id: product?.id || "",
-        name,
-        description: "Description",
-        price,
-        currency: "USD",
-        category,
-        image_url: "https://via.placeholder.com/150",
-      };
+  const handleSave = () => {
+    const errors: { [key: string]: string } = {};
 
-      // try {
-      //   if (isEdit) {
-      //     await updateProduct(newProduct);
-      //   } else {
-      //     await addProduct(newProduct);
-      //   }
-      //   onClose();
-      // } catch (err) {
-      //   console.error(err);
-      // }
+    if (!name.trim()) {
+      errors.name = "Product name is required";
     }
+
+    if (!category.trim()) {
+      errors.category = "Category is required";
+    }
+
+    if (price <= 0) {
+      errors.price = "Price must be greater than 0";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+
+    const product: Product = {
+      id: isEdit ? productToEdit!.id : undefined,
+      name,
+      price,
+      category,
+      description,
+    };
+
+    onSave(product);
+    onClose();
   };
 
   return (
@@ -112,10 +95,29 @@ const AddEditProductModal = ({
           error={Boolean(validationErrors.category)}
           helperText={validationErrors.category || ""}
         />
+        <TextField
+          margin="dense"
+          label="Price"
+          fullWidth
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(Number(e.target.value))}
+          error={Boolean(validationErrors.price)}
+          helperText={validationErrors.price || ""}
+        />
+        <TextField
+          margin="dense"
+          label="Description"
+          fullWidth
+          multiline
+          rows={4}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={handleSubmit}>{isEdit ? "Save" : "Add"}</Button>
+        <Button onClick={handleSave}>{isEdit ? "Save" : "Add"}</Button>
       </DialogActions>
     </Dialog>
   );
