@@ -141,16 +141,22 @@ const Login: FC = () => {
             dangerouslySetInnerHTML={{ __html: serverError }}
           />
         )}
+        <FlexBetween>
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            disabled={isSubmitting}
+            sx={{ marginTop: "0.5rem" }}
+          >
+            {isSubmitting ? "Logging in..." : "Login"}
+          </Button>
 
-        <Button
-          variant="contained"
-          color="primary"
-          type="submit"
-          disabled={isSubmitting}
-          sx={{ marginTop: "0.5rem" }}
-        >
-          {isSubmitting ? "Logging in..." : "Login"}
-        </Button>
+          <Typography color={palette.grey[300]}>
+            email : test@ritaro.dev
+          </Typography>
+          <Typography color={palette.grey[300]}>pass:123</Typography>
+        </FlexBetween>
       </form>
     </Container>
   );
